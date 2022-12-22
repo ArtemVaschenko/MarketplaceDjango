@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from django.contrib import admin
-from Cloth.models import Item
+from Cloth.models import Item, ProductImage
 
 
 class ItemAdmin(admin.ModelAdmin):
@@ -9,3 +9,4 @@ class ItemAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Item, ItemAdmin)
+admin.site.register(ProductImage, ItemAdmin)
