@@ -1,7 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h1>Penis</h1>
+<h1></h1>
+<ul>
+    {% for i in object_list %}
+<!--    <span class="placeholder col-6"></span>-->
+<!--    <span class="placeholder w-75"></span>-->
+<!--    <span class="placeholder" style="width: 25%;"></span>-->
 
+    <div class="card" style="width: 25%;">
+        <img src="{{ i.item_img }}" class="card-img-top" alt="photo {{ i.name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ i.name }}</h5>
+            <h6 class="card-title">{{ i.price }} грн</h6>
+            <!--                <p class="card-text">{{ i.description }}</p>-->
+            <a href="{{ i.get_absolute_url }}" class="btn btn-primary">More info...</a>
+        </div>
+    </div>
+
+    {% endfor %}
+</ul>
 {% endblock %}

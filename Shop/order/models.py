@@ -1,5 +1,7 @@
 from django.db import models
 
+from Cloth.models import Item
+
 
 class Status(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True, default=None)
@@ -23,10 +25,10 @@ class Order(models.Model):
     def __str__(self):
         return f'Order number {self.pk} have status {self.status}'
 
-#
-# class ItemInOrder(models.Model):
-#     order = models.ForeignKey(Order, on_delete=models.PROTECT, null=True, default=None)
-#     product = models.ForeignKey(Item, on_delete=models.PROTECT, blank=True, null=True, default=None)
-#
-#     def __str__(self):
-#         return f'{self.product.name}'
+
+class ItemInOrder(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.PROTECT, null=True, default=None)
+    product = models.ForeignKey(Item, on_delete=models.PROTECT, blank=True, null=True, default=None)
+
+    def __str__(self):
+        return f'Order number {self.order.pk} products: {self.product.name}'

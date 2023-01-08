@@ -17,9 +17,13 @@ from django.contrib import admin
 
 from django.urls import path
 
-from Cloth.views import index
+from Cloth.views import ShopHomePage, ShowItemPage, AddItem, RegisterUser
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', index)
+    path('', ShopHomePage.as_view(), name='home'),
+    path('item/<slug:item_slug>/', ShowItemPage.as_view(), name='item'),
+    path('add_item/', AddItem.as_view(), name='Add an advert'),
+    path('register/', RegisterUser.as_view(), name='register'),
+
 ]

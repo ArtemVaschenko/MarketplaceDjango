@@ -1,12 +1,12 @@
 from django.contrib import admin
-
-from django.contrib import admin
-from Cloth.models import Item, ProductImage
+from .models import *
 
 
 class ItemAdmin(admin.ModelAdmin):
-    pass
+    prepopulated_fields = {"slug": ("name",)}
 
 
 admin.site.register(Item, ItemAdmin)
 admin.site.register(ProductImage, ItemAdmin)
+admin.site.register(Category, ItemAdmin)
+

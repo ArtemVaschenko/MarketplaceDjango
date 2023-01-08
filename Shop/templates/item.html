@@ -1,0 +1,18 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<h1>{{ item.name }}</h1>
+<img src="{{ item.item_img }}" class="card-img-top" alt="photo {{ item.name }}">
+
+<!--<img src="{{ i.item_img }}" class="card-img-top" alt="photo {{ i.name }}">-->
+
+<!--<p><img class="img-article-left" src=""></p>-->
+<!--<img src="" class="img-fluid" alt="">/\-->
+<!--<img class="img-thumbnail" src="{{ item.item_img }}" alt="photo {{ item.name }}">-->
+<p> {{ item.description }}</p>
+{% endblock %}
