@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
@@ -9,6 +10,7 @@ class Item(models.Model):
     description = models.TextField(blank='This item has no description')
     item_img = models.ForeignKey('ProductImage', on_delete=models.CASCADE, blank=True, null=True)
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.PROTECT)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f'Id {self.pk} {self.name} {self.price}'
